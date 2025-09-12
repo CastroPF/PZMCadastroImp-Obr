@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/processos/processos.css" />
+  <title>PZMWEB Enterprise :: Controle de Impostos</title>
+</head>
+
+<body>
+  <header class="header-container">
+    <div class="header-left">
+      <h2>
+        <a href="/consultas/operativo.html" class="mainmenu">
+          PZMWEB Enterprise :: Controle de Impostos
+        </a>
+      </h2>
+    </div>
+    <div class="header-right">
+      <img src="/grupopzm.png" alt="logo" class="logo" />
+    </div>
+  </header>
+
+  <nav class="nav-container">
+    <div class="nav-left">
+      <div class="menu-item">
+        Controles
+        <div class="submenu">
+          <a href="/modulos/index.html">Alterar Aplicativo</a>
+          <a href="/modulos/divisão.html">Alterar Divisão</a>
+        </div>
+      </div>
+      <span>Cadastros</span>
+      <div class="menu-item">
+        Operações
+        <div class="submenu">
+          <a href="/consultas/operativo.html">Checklist de Apurações de Impostos Operativo</a>
+          <a href="/consultas/supervisor.html">Checklist de Apurações de Impostos Supervisor</a>
+          <a href="/capaprocesso/capa-de-processo.html">Controle de Aprovação da Capa de Processo</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        Processos
+        <div class="submenu">
+          <a href="">Gerar Calendário de Vencimento de Impostos</a>
+          <a href="">Gerar Checklist de Revisão</a>
+          <a href="">Gerar Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Revisão</a>
+        </div>
+      </div>
+      <span>Relatórios</span>
+      <span>Gráficos</span>
+      <span>Configurações</span>
+      <span>Ajuda</span>
+      <span><a class="sair" href="/login/login.html">Sair</a></span>
+    </div>
+    <div class="nav-right">
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="flags">
+        <img src="https://flagcdn.com/16x12/br.png" alt="Português" title="Português" />
+        <img src="https://flagcdn.com/16x12/es.png" alt="Español" title="Español" />
+        <img src="https://flagcdn.com/16x12/gb.png" alt="English" title="English" />
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Calendário de Vencimento de Impostos</h1>
+  </header>
+
+  <main class="container">
+    <form class="form-layout">
+      <fieldset class="periodo">
+        <legend>Período</legend>
+        <div class="fields">
+          <div class="field">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" value="2025" min="2000" max="2100" />
+          </div>
+          <div class="field">
+            <label for="mes">Mês</label>
+            <input type="number" id="mes" value="09" min="1" max="12" />
+          </div>
+          <button type="submit" class="btn primary processar">Processar</button>
+        </div>
+
+      </fieldset>
+
+      <section class="dual-list">
+        <div class="list-box">
+          <h2>Impostos Disponíveis</h2>
+          <select multiple class="list" id="disponivel"></select>
+        </div>
+
+        <div class="list-actions">
+          <button type="button" class="btn primary">Adicionar</button>
+          <button type="button" class="btn outlined">Remover</button>
+        </div>
+
+        <div class="list-box">
+          <h2>Selecionados</h2>
+          <select multiple class="list" id="gerar"></select>
+        </div>
+      </section>
+    </form>
+
+    <aside class="info">
+      <p>Apenas impostos vinculados a um grupo de vencimentos aparecerão como disponíveis.</p>
+      <p>Em “Selecionados” só aparecem impostos sem checklist criado no mês informado.</p>
+    </aside>
+  </main>
+
+  <script>
+    const checkbox = document.querySelector('.checkbox');
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode', checkbox.checked);
+    });
+  </script>
+</body>
+
+</html>

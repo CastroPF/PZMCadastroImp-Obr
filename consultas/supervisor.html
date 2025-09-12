@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/consultas/supervisor.css" />
+  <title>PZMWEB Enterprise :: Controle de Impostos</title>
+</head>
+
+<body>
+  <header class="header-container">
+    <div class="header-left">
+      <h2>
+        <a href="/consultas/operativo.html" class="mainmenu">
+          PZMWEB Enterprise :: Controle de Impostos
+        </a>
+      </h2>
+    </div>
+    <div class="header-right">
+      <img src="/grupopzm.png" alt="logo" class="logo" />
+    </div>
+  </header>
+
+  <nav class="nav-container">
+    <div class="nav-left">
+      <div class="menu-item">
+        Controles
+        <div class="submenu">
+          <a href="/modulos/index.html">Alterar Aplicativo</a>
+          <a href="/modulos/divisão.html">Alterar Divisão</a>
+        </div>
+      </div>
+      <span>Cadastros</span>
+      <div class="menu-item">
+        Operações
+        <div class="submenu">
+          <a href="/consultas/operativo.html">Checklist de Apurações de Impostos Operativo</a>
+          <a href="/consultas/supervisor.html">Checklist de Apurações de Impostos Supervisor</a>
+          <a href="/capaprocesso/capa-de-processo.html">Controle de Aprovação da Capa de Processo</a>
+        </div>
+      </div>
+      <span>Processos</span>
+      <span>Relatórios</span>
+      <span>Gráficos</span>
+      <span>Configurações</span>
+      <span>Ajuda</span>
+      <span><a class="sair" href="/login/login.html">Sair</a></span>
+    </div>
+    <div class="nav-right">
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="flags">
+        <img src="https://flagcdn.com/16x12/br.png" alt="Português" title="Português" />
+        <img src="https://flagcdn.com/16x12/es.png" alt="Español" title="Español" />
+        <img src="https://flagcdn.com/16x12/gb.png" alt="English" title="English" />
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="form-header">
+    <h3>Consulta Controle de Apuração de Impostos - Supervisor</h3>
+  </div>
+
+  <div class="painel-geral">
+    <div class="card-filtros">
+      <!-- Linha de ID e Botão Consultar -->
+      <div class="linha-id-consulta" style="grid-column: 1 / -1; display: flex; align-items: flex-end; justify-content: space-between;">
+        <div class="fitros-consulta">
+          <label>ID da Operação:</label>
+          <div>
+            <input type="text" placeholder="Digite o ID da operação" style="width: 300px;" />
+          </div>
+        </div>
+        <button class="consulta">Consultar</button>
+      </div>
+      <!-- Linha de Filtros -->
+      <div class="fitros-consulta">
+        <label>Data Inicial:</label>
+        <input type="date" value="2025-06-01" />
+        <label style="margin-bottom:0;">
+          <input type="checkbox" checked />
+          Listar Pendências dos últimos 5 dias
+        </label>
+      </div>
+      <div class="fitros-consulta">
+        <label>Data Final:</label>
+        <input type="date" value="2025-06-30" />
+      </div>
+      <div class="fitros-consulta">
+        <label style="margin-bottom: 2px;">Data Base:</label>
+        <div class="grupo-opcoes" style="gap: 4px;">
+          <label><input type="radio" name="data-base" />Vencimento</label>
+          <label><input type="radio" name="data-base" />Data Prevista</label>
+          <label><input type="radio" name="data-base" />Data Realizada</label>
+        </div>
+      </div>
+      <div class="fitros-consulta">
+        <label>Empresa:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+        <label style="margin-bottom:0;"><input type="checkbox" /> Filtrar Empresas Inativas</label>
+      </div>
+      <div class="fitros-consulta">
+        <label>Estabelecimento:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+        <label style="margin-bottom:0;"><input type="checkbox" /> Filtrar Estabelecimentos Inativos</label>
+      </div>
+      <div class="fitros-consulta">
+        <label>Esfera:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+      </div>
+      <div class="fitros-consulta">
+        <label>Imposto:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+      </div>
+      <div class="fitros-consulta">
+        <label>Estágios:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+      </div>
+      <div class="fitros-consulta">
+        <label>Classificação:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+      </div>
+      <div class="fitros-consulta">
+        <label>Responsável:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+        <label style="margin-bottom:0;"><input type="checkbox" /> Filtrar todos os registros sem responsável</label>
+      </div>
+      <div class="fitros-consulta">
+        <label>Status:</label>
+        <select>
+          <option>Todos os itens</option>
+        </select>
+        <div class="analiticos">
+          <label style="margin-bottom:0;"><input type="checkbox" checked /> Analítico</label>
+        </div>
+      </div>
+      <div class="fitros-consulta associar-responsavel">
+        <label>Associar Responsável:</label>
+        <div class="associar" style="display: flex; gap: 8px;">
+          <select>
+            <option>Todos os itens</option>
+          </select>
+          <button class="associar-botao">Associar</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-grafico">
+      <div class="barra-de-progresso-container">
+        <div class="barra-de-progresso-bar"></div>
+      </div>
+      <div class="grafico-item" id="containerFarol">
+        <span class="titulo-grafico">Controle de Status</span>
+        <canvas id="graficoFarol" width="280" height="240"></canvas>
+      </div>
+      <div class="grafico-item" id="containerEsferas" style="display: none;">
+        <span class="titulo-grafico">Por Esfera</span>
+        <canvas id="graficoEsferas" width="280" height="240"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="linha-legenda-botoes">
+    <div class="legenda">
+      <span class="complementar">Complementar</span>
+      <span class="retificacao">Retificação</span>
+      <span class="dentro-prazo">Dentro do Prazo</span>
+      <span class="no-limite">Prazo no Limite</span>
+      <span class="vencido">Atenção: Prazo Vencido</span>
+      <span class="finalizado">Processo Finalizado</span>
+      <span class="fora-prazo">Finalizado [Fora do Prazo]</span>
+      <span class="todos-os-status">Todos os Status</span>
+    </div>
+    <div class="carregar-arquivos">
+      <button class="archives">Carregar Arquivos</button>
+      <button class="eventual">Criar Controle Eventual</button>
+    </div>
+  </div>
+
+
+  <div class="quantidade">
+    <div class="linha-total-paginacao">
+      <div class="totalizadores">
+        <span>Total de Registros: 8</span>
+        <span>Total de Itens: 16</span>
+        <span><a href="#" class="baixar-anexos" onclick="abrirModal()">Total de Anexos: 14</a></span>
+      </div>
+
+      <nav class="pagination-nav">
+        <label class="pagination-select">
+          <span>Exibir</span>
+          <select>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
+          <span>por página</span>
+        </label>
+        <button class="pagination-btn" title="Primeira página">&laquo;</button>
+        <button class="pagination-btn" title="Página anterior">&lsaquo;</button>
+        <input type="number" value="1" min="1" class="pagination-input" />
+        <span class="pagination-total">de 5</span>
+        <button class="pagination-btn" title="Próxima página">&rsaquo;</button>
+        <button class="pagination-btn" title="Última página">&raquo;</button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="imp-info">
+    <table>
+      <thead>
+        <tr class="header-table">
+          <th></th>
+          <th>CNPJ</th>
+          <th>Local</th>
+          <th>Empresa</th>
+          <th>Estabelecimento</th>
+          <th>Categória</th>
+          <th>Imposto</th>
+          <th>Esfera</th>
+          <th>Vencimento</th>
+          <th>Mês</th>
+          <th>Ano</th>
+          <th>Descrição de Vencimento</th>
+          <th>Mês de competência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="header-table2">
+          <th>Número da Operação</th>
+          <th>Estágio</th>
+          <th>Responsável</th>
+          <th>Status</th>
+          <th>Retificação</th>
+          <th>Data Prevista</th>
+          <th>Data Realizada</th>
+          <th>Valor</th>
+          <th>Resultado da Operação</th>
+          <th>Local de Pagamento</th>
+          <th>Forma de Quitação</th>
+          <th>Contabilização Automática</th>
+          <th>Anexos</th>
+        </tr>
+
+        <tr class="header-atv">
+          <td colspan="1">
+            <img src="/ChatGPT Image 3 de jul. de 2025, 20_13_58.png" alt="parameter" class="parameter" />
+          <td><span>444.000.000/0004-04</span></td>
+          <td>Belo Horizonte</td>
+          <td>Grupo PZM Matriz</td>
+          <td>Filial PZM - SP</td>
+          <td>Comercial</td>
+          <td>ICMS</td>
+          <td>Estadual</td>
+          <td>10</td>
+          <td>07</td>
+          <td>2025</td>
+          <td>Imposto com vencimento todo dia 10</td>
+          <td>06/2025</td>
+          </td>
+        </tr>
+        <td>
+          <div class="status-etapa">
+            <input type="checkbox" name="checkbox" id="checkbox" /><span class="farol dentro-prazo" id="modalOpenButton"></span>
+            <span>12222</span>
+          </div>
+        </td>
+        <td><span>Apuração</span></td>
+        <td>Damares Oliveira</td>
+        <td>Pendente</td>
+        <td>Original</td>
+        <td>ICMS PZM 3030</td>
+        <td>15/07/2025</td>
+        <td>250,00</td>
+        <td>Devedora</td>
+        <td>Contas a Pagar</td>
+        <td>Compensação</td>
+        <td>Sim</td>
+        <td>1</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="status-etapa">
+              <input type="checkbox" name="checkbox" id="checkbox" /><span class="farol finalizado" id="modalOpenButton"></span>
+              <span>12222</span>
+            </div>
+          </td>
+          <td><span>Pagamento</span></td>
+          <td>Damares Oliveira</td>
+          <td>Concluído</td>
+          <td>Original</td>
+          <td>ICMS PZM 3030</td>
+          <td>15/07/2025</td>
+          <td>250,00</td>
+          <td>Devedora</td>
+          <td>Contas a Pagar</td>
+          <td>Compensação</td>
+          <td>Sim</td>
+          <td>1</td>
+        </tr>
+
+        <tr class="guia-eventual">
+          <td>
+            <div class="status-etapa">
+              <input type="checkbox" name="checkbox" id="checkbox" /><span class="farol finalizado" id="modalOpenButton"></span>
+              <span>12222</span>
+            </div>
+          </td>
+          <td><span>Eventual</span></td>
+          <td>Damares Oliveira</td>
+          <td>Concluído</td>
+          <td>Original</td>
+          <td>ICMS PZM 3030</td>
+          <td>15/07/2025</td>
+          <td>250,00</td>
+          <td>Devedora</td>
+          <td>Contas a Pagar</td>
+          <td>Compensação</td>
+          <td>Sim</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr class="header-table">
+          <th></th>
+          <th>CNPJ</th>
+          <th>Local</th>
+          <th>Empresa</th>
+          <th>Estabelecimento</th>
+          <th>Categória</th>
+          <th>Imposto</th>
+          <th>Esfera</th>
+          <th>Vencimento</th>
+          <th>Mês</th>
+          <th>Ano</th>
+          <th>Descrição de Vencimento</th>
+          <th>Mês de competência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="header-table2">
+          <th>Número da Operação</th>
+          <th>Estágio</th>
+          <th>Responsável</th>
+          <th>Status</th>
+          <th>Retificação</th>
+          <th>Data Prevista</th>
+          <th>Data Realizada</th>
+          <th>Valor</th>
+          <th>Resultado da Operação</th>
+          <th>Local de Pagamento</th>
+          <th>Forma de Quitação</th>
+          <th>Contabilização Automática</th>
+          <th>Anexos</th>
+        </tr>
+
+        <tr class="header-atv">
+          <td colspan="1">
+            <img src="/ChatGPT Image 3 de jul. de 2025, 20_13_58.png" alt="parameter" class="parameter" />
+          <td><span>444.000.000/0004-04</span></td>
+          <td>Belo Horizonte</td>
+          <td>Grupo PZM Matriz</td>
+          <td>Filial PZM - SP</td>
+          <td>Comercial</td>
+          <td>ICMS</td>
+          <td>Estadual</td>
+          <td>10</td>
+          <td>07</td>
+          <td>2025</td>
+          <td>Imposto com vencimento todo dia 10</td>
+          <td>06/2025</td>
+          </td>
+        </tr>
+
+
+        <td>
+          <div class="status-etapa">
+            <input type="checkbox" name="checkbox" id="checkbox" /><span class="farol dentro-prazo" id="modalOpenButton"></span>
+            <span>12222</span>
+          </div>
+        </td>
+        <td><span>Apuração</span></td>
+        <td>Damares Oliveira</td>
+        <td>Pendente</td>
+        <td>Original</td>
+        <td>ICMS PZM 3030</td>
+        <td>15/07/2025</td>
+        <td>2500,00</td>
+        <td>Devedora</td>
+        <td>Contas a Pagar</td>
+        <td>Compensação</td>
+        <td>Sim</td>
+        <td>1</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="status-etapa">
+              <input type="checkbox" name="checkbox" id="checkbox" /><span class="farol finalizado" id="modalOpenButton"></span>
+              <span>12222</span> +
+            </div>
+          </td>
+          <td><span>Pagamento</span></td>
+          <td>Damares Oliveira</td>
+          <td>Pendente</td>
+          <td>Original</td>
+          <td>ICMS PZM 3030</td>
+          <td>15/07/2025</td>
+          <td>2500,00</td>
+          <td>Devedora</td>
+          <td>Contas a Pagar</td>
+          <td>Compensação</td>
+          <td>Sim</td>
+          <td>1</td>
+        </tr>
+
+        <tr class="complementar">
+          <td>
+            <div class="status-etapa">
+              <input type="checkbox" name="checkbox" id="checkbox" />
+              <span>12222</span>
+            </div>
+          </td>
+          <td><span>Complementar</span></td>
+          <td>Damares Oliveira</td>
+          <td>Concluído</td>
+          <td>Original</td>
+          <td>ICMS PZM 3030</td>
+          <td>15/07/2025</td>
+          <td>250,00</td>
+          <td>Devedora</td>
+          <td>Contas a Pagar</td>
+          <td>Compensação</td>
+          <td>Sim</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="helpFab" id="helpFab">
+    <span>?</span>
+  </div>
+
+  <div class="chat-popup" id="chat-popup">
+    <div class="chat-header">
+      <span>Agente PZM</span>
+      <button class="close-chat" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-body" id="chat-body">
+      <div class="message bot">Olá! Como posso te ajudar hoje?</div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+
+  <div id="modalAnexos" class="modal">
+    <div class="modal-conteudo">
+      <span class="fechar" onclick="fecharModal()">&times;</span>
+      <h2>Anexos do Checklist</h2>
+
+      <div class="tabela-anexos">
+        <div class="cabecalho">
+          <span><input type="checkbox" /></span>
+          <span>ID</span>
+          <span>Empresa</span>
+          <span>Estabelecimento</span>
+          <span>Imposto</span>
+          <span>Ano e Mês</span>
+          <span>Tamanho</span>
+          <span>Arquivo</span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>22222</span>
+          <span>ABC</span>
+          <span>Matriz</span>
+          <span>ICMS</span>
+          <span>2025/07</span>
+          <span>10GB</span>
+          <span><a href="/anexos/anexo1.pdf" target="_blank">Comprovante.pdf</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>33333</span>
+          <span>PZM</span>
+          <span>Filial SP</span>
+          <span>ISS</span>
+          <span>2025/07</span>
+          <span>3.4MB</span>
+          <span><a href="/anexos/anexo2.jpg" target="_blank">Comprovante.jpg</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+        <div class="linha">
+          <span><input type="checkbox" /></span>
+          <span>44444</span>
+          <span>XYZ</span>
+          <span>Unidade RJ</span>
+          <span>ICMS-ST</span>
+          <span>2025/07</span>
+          <span>790KB</span>
+          <span><a href="/anexos/anexo3.xlsx" target="_blank">Planilha.xlsx</a></span>
+        </div>
+
+      </div>
+      <button class="btn-download-todos">Baixar Todos</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // --- Modal de Anexos ---
+    function abrirModal() {
+      const el = document.getElementById("modalAnexos");
+      if (el) el.style.display = "block";
+    }
+
+    function fecharModal() {
+      const el = document.getElementById("modalAnexos");
+      if (el) el.style.display = "none";
+    }
+
+    window.addEventListener("click", function (event) {
+      const modal = document.getElementById("modalAnexos");
+      if (modal && event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.body;
+
+      const darkToggle = document.querySelector(".checkbox");
+
+      const farolContainer = document.getElementById("containerFarol");
+      const esferasContainer = document.getElementById("containerEsferas");
+      const progressBar = document.querySelector(".barra-de-progresso-bar");
+      if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+        if (darkToggle) darkToggle.checked = true;
+      }
+
+      function trocaGraficos() {
+        if (!farolContainer || !esferasContainer) return;
+        const mostrandoFarol = farolContainer.style.display !== "none";
+        if (mostrandoFarol) {
+          farolContainer.style.display = "none";
+          esferasContainer.style.display = "block";
+        } else {
+          farolContainer.style.display = "block";
+          esferasContainer.style.display = "none";
+        }
+      }
+
+      function animateProgressBar() {
+        if (!progressBar) return;
+        progressBar.style.width = "0%";
+        const start = Date.now();
+        const duracao = 10000;
+        function frame() {
+          const elapsed = Date.now() - start;
+          const pct = Math.min((elapsed / duracao) * 100, 100);
+          progressBar.style.width = pct + "%";
+          if (pct < 100) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+      if (farolContainer && esferasContainer) {
+        farolContainer.style.display = "block";
+        esferasContainer.style.display = "none";
+        animateProgressBar();
+        setInterval(() => {
+          trocaGraficos();
+          animateProgressBar();
+        }, 10000);
+      }
+
+
+      const hasChart = typeof window.Chart !== "undefined";
+
+      const centerTextPlugin = {
+        id: "centerText",
+        afterDraw(chart) {
+          const { ctx, chartArea, data } = chart;
+          if (!chartArea || !data?.datasets?.[0]?.data?.length) return;
+          const { left, top, width, height } = chartArea;
+          const total = data.datasets[0].data.reduce((s, v) => s + v, 0);
+          const isDark = body.classList.contains("dark-mode");
+          const x = left + width / 2;
+          const y = top + height / 2;
+          ctx.save();
+          ctx.font = "bold 22px Arial";
+          ctx.fillStyle = isDark ? "#fff" : "#000";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(total, x, y - 8);
+          ctx.font = "12px Arial";
+          ctx.fillStyle = isDark ? "#fff" : "#000";
+          ctx.fillText("Total", x, y + 15);
+          ctx.restore();
+        },
+      };
+
+      const dataLabelPlugin = {
+        id: "dataLabel",
+        afterDatasetsDraw(chart) {
+          const { ctx, data } = chart;
+          const meta = chart.getDatasetMeta(0);
+          if (!meta?.data) return;
+          meta.data.forEach((arc, i) => {
+            const pt = arc.getCenterPoint ? arc.getCenterPoint() : null;
+            const value = data?.datasets?.[0]?.data?.[i];
+            if (!pt || value == null) return;
+            ctx.save();
+            ctx.fillStyle = "#333";
+            ctx.font = "bold 11px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(value, pt.x, pt.y);
+            ctx.restore();
+          });
+        },
+      };
+
+      const shadowPlugin = {
+        id: "shadow",
+        beforeDraw(chart) {
+          const ctx = chart.ctx;
+          ctx.save();
+          ctx.shadowColor = body.classList.contains("dark-mode")
+            ? "#ffffff40"
+            : "#b9b9b9";
+          ctx.shadowBlur = 12;
+          ctx.shadowOffsetX = 0;
+          ctx.shadowOffsetY = 0;
+        },
+        afterDraw(chart) {
+          chart.ctx.restore();
+        },
+      };
+
+      // --- Gráficos ---
+      let graficoFarol = null;
+      let graficoEsferas = null;
+
+      if (hasChart) {
+        const farolCanvas = document.getElementById("graficoFarol");
+        if (farolCanvas && farolCanvas.getContext) {
+          const ctxFarol = farolCanvas.getContext("2d");
+          graficoFarol = new Chart(ctxFarol, {
+            type: "doughnut",
+            data: {
+              labels: [
+                "Complementar",
+                "Retificação",
+                "Dentro do Prazo",
+                "Prazo no Limite",
+                "Atenção: Prazo Vencido",
+                "Processo Finalizado",
+                "Finalizado [Fora do Prazo]",
+              ],
+              datasets: [
+                {
+                  data: [1, 2, 5, 3, 1, 4, 1],
+                  backgroundColor: [
+                    "#002fff6b",
+                    "#f3007e",
+                    "#00e1ff",
+                    "orange",
+                    "red",
+                    "green",
+                    "purple",
+                  ],
+                  borderWidth: 3,
+                },
+              ],
+            },
+            options: {
+              responsive: false,
+              maintainAspectRatio: false,
+              layout: { padding: 15 },
+              elements: { arc: { hoverOffset: 15 } },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label(ctx) {
+                      const label = ctx.label || "";
+                      const val = ctx.parsed;
+                      const arr = ctx.chart.data.datasets[0].data;
+                      const total = arr.reduce((s, v) => s + v, 0);
+                      return `${label}: ${((val / total) * 100).toFixed(2)}%`;
+                    },
+                  },
+                },
+              },
+            },
+            plugins: [shadowPlugin, centerTextPlugin, dataLabelPlugin],
+          });
+        }
+
+        const esferasCanvas = document.getElementById("graficoEsferas");
+        if (esferasCanvas && esferasCanvas.getContext) {
+          const ctxEsferas = esferasCanvas.getContext("2d");
+          const quantidades = [60, 33, 14];
+          const valoresReais = [60000, 20000, 15000];
+
+          graficoEsferas = new Chart(ctxEsferas, {
+            type: "bar",
+            data: {
+              labels: ["Federal", "Estadual", "Municipal"],
+              datasets: [
+                {
+                  label: "Quantidade",
+                  data: quantidades,
+                  backgroundColor: ["#002fff6b", "#00e1ff", "#f3007e"],
+                  borderRadius: 12,
+                  borderWidth: 1,
+                  borderSkipped: false,
+                },
+              ],
+            },
+            options: {
+              responsive: false,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label(ctx) {
+                      const lbl = ctx.label || "";
+                      const valor = valoresReais[ctx.dataIndex] || 0;
+                      return `${lbl}: ${valor.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}`;
+                    },
+                  },
+                },
+              },
+              scales: {
+                x: {
+                  grid: { display: false, drawBorder: false },
+                  ticks: {
+                    color: body.classList.contains("dark-mode") ? "#fff" : "#222",
+                    font: { size: 13 },
+                  },
+                },
+                y: {
+                  grid: { display: false, drawBorder: false },
+                  beginAtZero: true,
+                  ticks: {
+                    color: body.classList.contains("dark-mode") ? "#fff" : "#222",
+                    font: { size: 13 },
+                  },
+                  suggestedMax: 80,
+                },
+              },
+            },
+          });
+        }
+      }
+
+      // --- Toggle Dark Mode ---
+      if (darkToggle) {
+        darkToggle.addEventListener("change", () => {
+          body.classList.toggle("dark-mode", darkToggle.checked);
+          localStorage.setItem(
+            "dark-mode",
+            darkToggle.checked ? "enabled" : "disabled"
+          );
+
+          if (graficoFarol) graficoFarol.update();
+          if (graficoEsferas) {
+            const isDark = body.classList.contains("dark-mode");
+            if (graficoEsferas.options?.scales?.x?.ticks) {
+              graficoEsferas.options.scales.x.ticks.color = isDark
+                ? "#fff"
+                : "#222";
+            }
+            if (graficoEsferas.options?.scales?.y?.ticks) {
+              graficoEsferas.options.scales.y.ticks.color = isDark
+                ? "#fff"
+                : "#222";
+            }
+            graficoEsferas.update();
+          }
+        });
+      }
+    });
+  </script>
+  <script src="/chatbot.js"></script>
+
+
+</body>
+
+</html>
