@@ -80,7 +80,6 @@
 
       <div class="tabs">
         <button class="tab active" data-tab="dados">Dados Gerais</button>
-        <button class="tab" data-tab="referencia">Referência</button>
         <button class="tab" data-tab="impostos">Impostos</button>
       </div>
 
@@ -120,9 +119,7 @@
             <input type="number" id="mes-fim" min="1" max="12" value="12" />
           </div>
         </div>
-      </div>
 
-      <div class="tab-content" id="referencia">
         <div class="form-inline">
           <div class="form-group">
             <label for="ano-ref">Ano Referência <span class="asterisk">*</span></label>
@@ -161,6 +158,7 @@
       </div>
 
       <footer class="form-actions">
+        <button type="submit" class="btn outlined">Atualizar (Filtro de Mês Referência)</button>
         <button type="submit" class="btn primary">Processar</button>
       </footer>
     </div>
@@ -173,11 +171,8 @@
     // Controle de abas
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
-        // desativa todas
         tabs.forEach(t => t.classList.remove("active"));
         contents.forEach(c => c.classList.remove("active"));
-
-        // ativa a clicada
         tab.classList.add("active");
         document.getElementById(tab.dataset.tab).classList.add("active");
       });
@@ -185,13 +180,10 @@
 
     // Toggle Dark Mode
     const toggle = document.querySelector(".checkbox");
-
-    // checar preferências do usuário
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");
       toggle.checked = true;
     }
-
     toggle.addEventListener("change", () => {
       if (toggle.checked) {
         document.body.classList.add("dark-mode");

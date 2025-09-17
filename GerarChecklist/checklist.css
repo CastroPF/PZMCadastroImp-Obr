@@ -277,12 +277,12 @@ select:focus {
 }
 
 .btn.outlined {
-  background: var(--gray-200);
-  color: var(--dark-text-color);
+  background: var(--dark-accent);
+  color: var(--light-color);
 }
 
 .btn.outlined:hover {
-  background: var(--gray-300);
+  background: var(--dark-151f2b);
 }
 
 /* ---------- ABAS  ---------- */
