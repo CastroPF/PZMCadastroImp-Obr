@@ -325,7 +325,7 @@ body.dark-mode nav {
 
 /* Painéis */
 body.dark-mode .painel {
-  background: #2c2c2c;
+  background: var(--dark-accent);
   border: solid 1px var(--primary-color);
   color: var(--gray-100);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
@@ -364,9 +364,9 @@ body.dark-mode .btn.primary:hover {
 }
 
 body.dark-mode .buttons > .btn.outlined {
-  background: var(--dark-accent);
+  background: var(--dark-151f2b);
   color: var(--light-color);
 }
 body.dark-mode .buttons > .btn.outlined:hover {
-  background: var(--dark-151f2b);
+  background: var(--dark-accent);
 }

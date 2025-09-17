@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/calendario/processos.css" />
-  <title>PZMWEB Enterprise :: Controle de Impostos - Geração de Calendário</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/ExclusaoRevisao/style.css">
+  <title>PZMWEB Enterprise :: Controle de Impostos - Exclusão de Checklist de Revisão</title>
 </head>
 
 <body>
@@ -72,46 +72,46 @@
   </nav>
 
   <header class="page-header">
-    <h1>Calendário de Vencimento de Impostos</h1>
+    <h1>Exclusão de Checklist de Revisão Fiscal</h1>
   </header>
 
   <main class="container">
     <form class="form-layout">
       <fieldset class="periodo">
-        <legend>Período</legend>
+        <legend>Período de Revisão</legend>
         <div class="fields">
           <!-- Período Inicial -->
           <div class="field">
-            <label for="anoInicio">Ano - Início</label>
-            <input type="number" id="anoInicio" value="2025" min="2000" max="2100" />
+            <label for="ano">Ano <span class="asterisk">*</span></label>
+            <input type="number" id="ano" value="2025" min="2000" max="2100" />
           </div>
           <div class="field">
-            <label for="mesInicio">Mês - Início</label>
-            <input type="number" id="mesInicio" value="01" min="1" max="12" />
+            <label for="mes">Mês <span class="asterisk">*</span></label>
+            <input type="number" id="mes" value="01" min="1" max="12" />
           </div>
-          <strong>À</strong>
-          <!-- Período Final -->
+
           <div class="field">
-            <label for="anoFim">Ano - Fim</label>
-            <input type="number" id="anoFim" value="2025" min="2000" max="2100" />
-          </div>
-          <div class="field">
-            <label for="mesFim">Mês - Fim</label>
-            <input type="number" id="mesFim" value="12" min="1" max="12" />
+            <label for="revisao">Revisão <span class="asterisk">*</span></label>
+            <select id="selecao">
+              <option value="">Todos os itens</option>
+              <option value="op1">Opção 1</option>
+              <option value="op2">Opção 2</option>
+              <option value="op3">Opção 3</option>
+            </select>
           </div>
 
           <!-- Botões -->
           <div class="buttons">
-            <button type="submit" class="btn primary outlined">Consultar</button>
             <button type="submit" class="btn primary processar">Processar</button>
           </div>
         </div>
       </fieldset>
 
+      <p class="legend-obrigatorio">* Campos de preenchimento obrigatório</p>
 
       <section class="dual-list">
         <div class="list-box">
-          <h2>Impostos Disponíveis</h2>
+          <h2>Disponíveis</h2>
           <select multiple class="list" id="disponivel"></select>
         </div>
 
@@ -121,24 +121,14 @@
         </div>
 
         <div class="list-box">
-          <h2>Selecionados</h2>
+          <h2>Excluir</h2>
           <select multiple class="list" id="gerar"></select>
         </div>
       </section>
     </form>
-
-    <aside class="info">
-      <p>Apenas impostos vinculados a um grupo de vencimentos aparecerão como disponíveis.</p>
-      <p>Em “Selecionados” só aparecem impostos sem checklist criado no mês informado.</p>
-    </aside>
   </main>
 
-  <script>
-    const checkbox = document.querySelector('.checkbox');
-    checkbox.addEventListener('change', () => {
-      document.body.classList.toggle('dark-mode', checkbox.checked);
-    });
-  </script>
+
 </body>
 
 </html>
