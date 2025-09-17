@@ -47,6 +47,16 @@
         <a href="/ExclusaoChecklist/exclusao.html">Excluir Checklist de Apuração de Impostos</a>
         <a href="/ExclusaoRevisao/index.html">Excluir Checklist de Revisão</a>
       </div>
+      <div class="menu-item">
+        Processos
+        <div class="submenu">
+          <a href="/calendario/calendario.html">Gerar Calendário de Vencimento de Impostos</a>
+          <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
+          <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
+          <a href="/ExclusaoChecklist/exclusao.html">Excluir Checklist de Apuração de Impostos</a>
+          <a href="/ExclusaoRevisao/index.html">Excluir Checklist de Revisão</a>
+        </div>
+      </div>
       <span>Relatórios</span>
       <span>Gráficos</span>
       <span>Configurações</span>
@@ -610,6 +620,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/dark-mode.js"></script>
   <script>
     // --- Modal de Anexos ---
     function abrirModal() {
@@ -632,15 +643,9 @@
     document.addEventListener("DOMContentLoaded", function () {
       const body = document.body;
 
-      const darkToggle = document.querySelector(".checkbox");
-
       const farolContainer = document.getElementById("containerFarol");
       const esferasContainer = document.getElementById("containerEsferas");
       const progressBar = document.querySelector(".barra-de-progresso-bar");
-      if (localStorage.getItem("dark-mode") === "enabled") {
-        body.classList.add("dark-mode");
-        if (darkToggle) darkToggle.checked = true;
-      }
 
       function trocaGraficos() {
         if (!farolContainer || !esferasContainer) return;
@@ -679,6 +684,27 @@
 
 
       const hasChart = typeof window.Chart !== "undefined";
+
+      let graficoFarol = null;
+      let graficoEsferas = null;
+
+      const atualizarTemaNosGraficos = () => {
+        if (graficoFarol) {
+          graficoFarol.update();
+        }
+        if (graficoEsferas) {
+          const isDark = body.classList.contains("dark-mode");
+          if (graficoEsferas.options?.scales?.x?.ticks) {
+            graficoEsferas.options.scales.x.ticks.color = isDark ? "#fff" : "#222";
+          }
+          if (graficoEsferas.options?.scales?.y?.ticks) {
+            graficoEsferas.options.scales.y.ticks.color = isDark ? "#fff" : "#222";
+          }
+          graficoEsferas.update();
+        }
+      };
+
+      document.addEventListener("darkmodechange", atualizarTemaNosGraficos);
 
       const centerTextPlugin = {
         id: "centerText",
@@ -742,9 +768,6 @@
       };
 
       // --- Gráficos ---
-      let graficoFarol = null;
-      let graficoEsferas = null;
-
       if (hasChart) {
         const farolCanvas = document.getElementById("graficoFarol");
         if (farolCanvas && farolCanvas.getContext) {
@@ -861,33 +884,6 @@
             },
           });
         }
-      }
-
-      // --- Toggle Dark Mode ---
-      if (darkToggle) {
-        darkToggle.addEventListener("change", () => {
-          body.classList.toggle("dark-mode", darkToggle.checked);
-          localStorage.setItem(
-            "dark-mode",
-            darkToggle.checked ? "enabled" : "disabled"
-          );
-
-          if (graficoFarol) graficoFarol.update();
-          if (graficoEsferas) {
-            const isDark = body.classList.contains("dark-mode");
-            if (graficoEsferas.options?.scales?.x?.ticks) {
-              graficoEsferas.options.scales.x.ticks.color = isDark
-                ? "#fff"
-                : "#222";
-            }
-            if (graficoEsferas.options?.scales?.y?.ticks) {
-              graficoEsferas.options.scales.y.ticks.color = isDark
-                ? "#fff"
-                : "#222";
-            }
-            graficoEsferas.update();
-          }
-        });
       }
     });
   </script>

@@ -53,8 +53,8 @@
           <a href="/calendario/calendario.html">Gerar Calendário de Vencimento de Impostos</a>
           <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
           <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
-          <a href="">Excluir Checklist de Apuração de Impostos</a>
-          <a href="">Excluir Checklist de Revisão</a>
+          <a href="/ExclusaoChecklist/exclusao.html">Excluir Checklist de Apuração de Impostos</a>
+          <a href="/ExclusaoRevisao/index.html">Excluir Checklist de Revisão</a>
         </div>
       </div>
       <span>Relatórios</span>
@@ -413,6 +413,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dark-mode.js"></script>
     <script>
       function abrirModal() {
         document.getElementById("modalAnexos").style.display = "block";
@@ -432,25 +433,14 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         const body = document.body;
-        const darkToggle = document.querySelector(".checkbox");
 
-        if (localStorage.getItem("dark-mode") === "enabled") {
-          body.classList.add("dark-mode");
-          if (darkToggle) darkToggle.checked = true;
-        }
-
-        if (darkToggle) {
-          darkToggle.addEventListener("change", function () {
-            if (darkToggle.checked) {
-              body.classList.add("dark-mode");
-              localStorage.setItem("dark-mode", "enabled");
-            } else {
-              body.classList.remove("dark-mode");
-              localStorage.setItem("dark-mode", "disabled");
-            }
+        const atualizarGraficosParaTema = () => {
+          if (window.graficoFarol) {
             graficoFarol.update();
-          });
-        }
+          }
+        };
+
+        document.addEventListener("darkmodechange", atualizarGraficosParaTema);
 
         const centerTextPlugin = {
           id: "centerText",

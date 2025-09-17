@@ -164,6 +164,7 @@
     </div>
   </main>
 
+  <script src="/js/dark-mode.js"></script>
   <script>
     const tabs = document.querySelectorAll(".tab");
     const contents = document.querySelectorAll(".tab-content");
@@ -176,22 +177,6 @@
         tab.classList.add("active");
         document.getElementById(tab.dataset.tab).classList.add("active");
       });
-    });
-
-    // Toggle Dark Mode
-    const toggle = document.querySelector(".checkbox");
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      toggle.checked = true;
-    }
-    toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.body.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light");
-      }
     });
   </script>
 </body>
