@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/processos/processos.css" />
-  <title>PZMWEB Enterprise :: Controle de Impostos</title>
+  <link rel="stylesheet" href="/calendario/processos.css" />
+  <title>PZMWEB Enterprise :: Controle de Impostos - Geração de Calendário</title>
 </head>
 
 <body>
@@ -43,10 +43,10 @@
       <div class="menu-item">
         Processos
         <div class="submenu">
-          <a href="">Gerar Calendário de Vencimento de Impostos</a>
-          <a href="">Gerar Checklist de Revisão</a>
-          <a href="">Gerar Checklist de Apuração de Impostos</a>
-          <a href="">Excluir Checklist de Apuração de Impostos</a>
+          <a href="/calendario/calendario.html">Gerar Calendário de Vencimento de Impostos</a>
+          <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
+          <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
+          <a href="/ExclusaoChecklist/exclusao.html">Excluir Checklist de Apuração de Impostos</a>
           <a href="">Excluir Checklist de Revisão</a>
         </div>
       </div>
@@ -80,18 +80,34 @@
       <fieldset class="periodo">
         <legend>Período</legend>
         <div class="fields">
+          <!-- Período Inicial -->
           <div class="field">
-            <label for="ano">Ano</label>
-            <input type="number" id="ano" value="2025" min="2000" max="2100" />
+            <label for="anoInicio">Ano - Início</label>
+            <input type="number" id="anoInicio" value="2025" min="2000" max="2100" />
           </div>
           <div class="field">
-            <label for="mes">Mês</label>
-            <input type="number" id="mes" value="09" min="1" max="12" />
+            <label for="mesInicio">Mês - Início</label>
+            <input type="number" id="mesInicio" value="01" min="1" max="12" />
           </div>
-          <button type="submit" class="btn primary processar">Processar</button>
-        </div>
+          <strong>À</strong>
+          <!-- Período Final -->
+          <div class="field">
+            <label for="anoFim">Ano - Fim</label>
+            <input type="number" id="anoFim" value="2025" min="2000" max="2100" />
+          </div>
+          <div class="field">
+            <label for="mesFim">Mês - Fim</label>
+            <input type="number" id="mesFim" value="12" min="1" max="12" />
+          </div>
 
+          <!-- Botões -->
+          <div class="buttons">
+            <button type="submit" class="btn primary outlined">Consultar</button>
+            <button type="submit" class="btn primary processar">Processar</button>
+          </div>
+        </div>
       </fieldset>
+
 
       <section class="dual-list">
         <div class="list-box">
@@ -100,8 +116,8 @@
         </div>
 
         <div class="list-actions">
-          <button type="button" class="btn primary">Adicionar</button>
-          <button type="button" class="btn outlined">Remover</button>
+          <button type="button" class="btn primary processar">Adicionar 🡲</button>
+          <button type="button" class="btn primary outlined">🡰 Remover</button>
         </div>
 
         <div class="list-box">

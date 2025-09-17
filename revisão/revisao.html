@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/revisão/revisao.css">
+  <title>PZMWEB Enterprise :: Controle de Impostos - Geração Checklist de Revisão</title>
+</head>
+
+<body>
+  <header class="header-container">
+    <div class="header-left">
+      <h2>
+        <a href="/consultas/operativo.html" class="mainmenu">
+          PZMWEB Enterprise :: Controle de Impostos
+        </a>
+      </h2>
+    </div>
+    <div class="header-right">
+      <img src="/grupopzm.png" alt="logo" class="logo" />
+    </div>
+  </header>
+
+  <nav class="nav-container">
+    <div class="nav-left">
+      <div class="menu-item">
+        Controles
+        <div class="submenu">
+          <a href="/modulos/index.html">Alterar Aplicativo</a>
+          <a href="/modulos/divisão.html">Alterar Divisão</a>
+        </div>
+      </div>
+      <span>Cadastros</span>
+      <div class="menu-item">
+        Operações
+        <div class="submenu">
+          <a href="/consultas/operativo.html">Checklist de Apurações de Impostos Operativo</a>
+          <a href="/consultas/supervisor.html">Checklist de Apurações de Impostos Supervisor</a>
+          <a href="/capaprocesso/capa-de-processo.html">Controle de Aprovação da Capa de Processo</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        Processos
+        <div class="submenu">
+          <a href="/calendario/calendario.html">Gerar Calendário de Vencimento de Impostos</a>
+          <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
+          <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Revisão</a>
+        </div>
+      </div>
+      <span>Relatórios</span>
+      <span>Gráficos</span>
+      <span>Configurações</span>
+      <span>Ajuda</span>
+      <span><a class="sair" href="/login/login.html">Sair</a></span>
+    </div>
+    <div class="nav-right">
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="flags">
+        <img src="https://flagcdn.com/16x12/br.png" alt="Português" title="Português" />
+        <img src="https://flagcdn.com/16x12/es.png" alt="Español" title="Español" />
+        <img src="https://flagcdn.com/16x12/gb.png" alt="English" title="English" />
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="title">
+      <h1>Checklist de Revisão de Informações Fiscais</h1>
+    </div>
+
+    <section class="painel">
+      <div class="listas">
+        <div class="list-box">
+          <h2>Disponível</h2>
+          <select multiple class="list" id="lista-disponivel">
+            <option>CFEM - PINHEIRO MACHADO - CALCÁRIO</option>
+            <option>CFEM - APIAÍ - ARGILA QUARTZITO</option>
+            <option>CFEM - BARUERI - GRANITO</option>
+            <option>CFEM - BODOQUENA - CALCÁRIO</option>
+            <option>CFEM - BRUMADO - MINA BAIXA GRANDE - ARGILA</option>
+          </select>
+        </div>
+
+        <div class="list-actions">
+          <button class="btn outlined">Adicionar 🡲</button>
+          <button class="btn outlined">🡰 Remover</button>
+          <button class="btn outlined">Adicionar Todos 🡲</button>
+        </div>
+
+        <div class="list-box">
+          <h2>Gerar</h2>
+          <select multiple class="list" id="lista-gerar"></select>
+        </div>
+      </div>
+
+      <div class="filtros">
+        <label for="periodo">Período de Revisão:</label>
+        <select id="periodo">
+          <option>Todos os Itens</option>
+          <option>Últimos 30 dias</option>
+          <option>Últimos 90 dias</option>
+        </select>
+
+        <div class="buttons">
+          <button class="btn primary outlined">Atualizar</button>
+          <button class="btn primary processar">Processar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.querySelector(".checkbox");
+
+    toggle.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode", toggle.checked);
+
+      if (toggle.checked) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/ExclusaoChecklist/exclusao.css">
+  <title>PZMWEB Enterprise :: Controle de Impostos - Geração Checklist de Revisão</title>
+</head>
+
+<body>
+  <header class="header-container">
+    <div class="header-left">
+      <h2>
+        <a href="/consultas/operativo.html" class="mainmenu">
+          PZMWEB Enterprise :: Controle de Impostos
+        </a>
+      </h2>
+    </div>
+    <div class="header-right">
+      <img src="/grupopzm.png" alt="logo" class="logo" />
+    </div>
+  </header>
+
+  <nav class="nav-container">
+    <div class="nav-left">
+      <div class="menu-item">
+        Controles
+        <div class="submenu">
+          <a href="/modulos/index.html">Alterar Aplicativo</a>
+          <a href="/modulos/divisão.html">Alterar Divisão</a>
+        </div>
+      </div>
+      <span>Cadastros</span>
+      <div class="menu-item">
+        Operações
+        <div class="submenu">
+          <a href="/consultas/operativo.html">Checklist de Apurações de Impostos Operativo</a>
+          <a href="/consultas/supervisor.html">Checklist de Apurações de Impostos Supervisor</a>
+          <a href="/capaprocesso/capa-de-processo.html">Controle de Aprovação da Capa de Processo</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        Processos
+        <div class="submenu">
+          <a href="/calendario/calendario.html">Gerar Calendário de Vencimento de Impostos</a>
+          <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
+          <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Apuração de Impostos</a>
+          <a href="">Excluir Checklist de Revisão</a>
+        </div>
+      </div>
+      <span>Relatórios</span>
+      <span>Gráficos</span>
+      <span>Configurações</span>
+      <span>Ajuda</span>
+      <span><a class="sair" href="/login/login.html">Sair</a></span>
+    </div>
+    <div class="nav-right">
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="flags">
+        <img src="https://flagcdn.com/16x12/br.png" alt="Português" title="Português" />
+        <img src="https://flagcdn.com/16x12/es.png" alt="Español" title="Español" />
+        <img src="https://flagcdn.com/16x12/gb.png" alt="English" title="English" />
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="form-card">
+      <header class="form-header">
+        <h1>Excluir Checklist de Apuração</h1>
+        <p>Informe o período e filtros desejados para excluir os checklists gerados.</p>
+      </header>
+
+      <form>
+        <div class="form-group">
+          <label for="organizacao">Organização</label>
+          <select id="organizacao">
+            <option>Todos os Itens</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="empresa">Empresa</label>
+          <select id="empresa">
+            <option>Todos os Itens</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="estabelecimento">Estabelecimento</label>
+          <select id="estabelecimento">
+            <option>Todos os Itens</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="imposto">Imposto Específico</label>
+          <select id="imposto">
+            <option>Todos os Itens</option>
+          </select>
+        </div>
+
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="ano-apuracao">Ano Apuração <span class="asterisk">*</span></label>
+            <input type="number" id="ano-apuracao" value="2025" />
+          </div>
+          <div class="form-group">
+            <label for="mes-inicial">Mês Inicial <span class="asterisk">*</span></label>
+            <input type="number" id="mes-inicial" value="01" min="1" max="12" />
+          </div>
+          <div class="form-group">
+            <label for="mes-final">Mês Final <span class="asterisk">*</span></label>
+            <input type="number" id="mes-final" value="12" min="1" max="12" />
+          </div>
+        </div>
+        <footer class="form-actions">
+          <button type="submit" class="btn outlined">Atualizar (Filtro de Mês)</button>
+          <button type="submit" class="btn primary">Processar Exclusão</button>
+        </footer>
+      </form>
+    </div>
+  </main>
+
+
+  <script>
+    const toggle = document.querySelector(".checkbox");
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+
+</body>
+
+</html>
