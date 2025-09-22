@@ -117,6 +117,7 @@ nav {
   box-shadow: inset 8px -3px 0 0 var(--light);
   transition: transform 0.3s ease;
 }
+
 .checkbox:checked ~ .slider::before {
   transform: translateX(23px);
 }
@@ -181,7 +182,7 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   width: 50px;
-  height: 6px;
+  height: 4px;
   border-radius: 3px;
   background: var(--secondary-color);
 }
@@ -440,19 +441,6 @@ body.dark-mode .btn.primary:hover {
   background: #d9a84a;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
-body.dark-mode .btn.outlined {
-  background: var(--dark-surface);
-  color: #f5f5f5;
-}
-
-body.dark-mode .btn.outlined:hover {
-  background: var(--dark-2c);
-}
-
-body.dark-mode .list-actions > .btn.outlined {
-  background: var(--gray-800);
-  color: var(--light-color);
-}
 
 body.dark-mode select,
 body.dark-mode #selecao {
@@ -465,4 +453,18 @@ body.dark-mode select:focus,
 body.dark-mode #selecao:focus {
   outline: none;
   border-color: var(--light-color);
+}
+
+body.dark-mode .btn.outlined {
+  background: var(--gray-800);
+  color: #f5f5f5;
+}
+
+body.dark-mode .btn.outlined:hover {
+  background: var(--gray-700);
+  color: var(--light-color);
+}
+
+body.dark-mode .btn.outlined:hover {
+  background: var(--gray-700);
 }
