@@ -1,5 +1,8 @@
-﻿@import url("../colors.css");
+@import url("../colors.css");
 
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -11,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header & Navigation
+======================================== */
 .header-container {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -41,7 +46,6 @@ body {
   color: var(--dark-text-color);
 }
 
-/* ---------- NAV ---------- */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -70,7 +74,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -121,7 +127,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
+/* ========================================
+   Menu
+======================================== */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -153,14 +161,15 @@ nav {
   display: block;
 }
 
-/* container (main) */
+/* ========================================
+   Page Layout
+======================================== */
 .container {
   max-width: 1400px;
   margin-left: 280px;
   padding: 0 2rem;
 }
 
-/* Titulo */
 .page-header {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -186,7 +195,9 @@ nav {
   background: var(--secondary-color);
 }
 
-/* ---------- PERÍODO ---------- */
+/* ========================================
+   Filters & Period Controls
+======================================== */
 .periodo {
   border: 1px solid var(--border-color);
   border-radius: 10px;
@@ -226,7 +237,9 @@ input[type="number"] {
   height: 42px; /* altura fixa */
 }
 
-/* ---------- LISTAS ---------- */
+/* ========================================
+   Dual List
+======================================== */
 .dual-list {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -268,7 +281,9 @@ input[type="number"] {
   background: #f9fafb;
 }
 
-/* ---------- BOTÕES ---------- */
+/* ========================================
+   Buttons
+======================================== */
 .dual-list .buttons {
   display: flex;
   flex-direction: column;
@@ -298,7 +313,7 @@ input[type="number"] {
   transform: translateY(-1px);
 }
 .btn.outlined {
-  background: var(--dark-151f2b);
+  background: var(--dark-accent);
   color: var(--light-color);
   height: 42px;
   margin-bottom: 0;
@@ -307,7 +322,7 @@ input[type="number"] {
   justify-content: center;
 }
 .btn.outlined:hover {
-  background: var(--dark-accent);
+  background: var(--dark-151f2b);
   color: var(--light-color);
 }
 .btn.processar {
@@ -323,6 +338,9 @@ input[type="number"] {
   gap: 0.5rem;
 }
 
+/* ========================================
+   Form Fields & Indicators
+======================================== */
 input[type="text"],
 select {
   width: 150px;
@@ -346,6 +364,9 @@ select {
   font-style: italic;
 }
 
+/* ========================================
+   List Actions
+======================================== */
 .list-actions {
   display: flex;
   flex-direction: column;
@@ -359,7 +380,9 @@ select {
   text-align: center;
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background: var(--dark-bg);
   color: #e0e0e0;
@@ -394,7 +417,7 @@ body.dark-mode nav {
   border-bottom: 1px solid #333333;
 }
 
-/* PAINÉIS */
+/* Dark Mode Panels */
 body.dark-mode .periodo,
 body.dark-mode .list-box {
   background: var(--dark-accent);
@@ -405,14 +428,14 @@ body.dark-mode .list-box {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Títulos */
+/* Dark Mode Titles */
 body.dark-mode .periodo legend,
 body.dark-mode .list-box h2 {
   color: #f0c36d;
   font-weight: 600;
 }
 
-/* Inputs */
+/* Dark Mode Inputs */
 body.dark-mode input[type="number"] {
   background: #2b2b2b;
   border: 1px solid #3a3a3a;
@@ -435,7 +458,7 @@ body.dark-mode .list:hover {
   background: #323232;
 }
 
-/* Botões */
+/* Dark Mode Buttons */
 body.dark-mode .btn.primary:hover {
   background: #d9a84a;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);

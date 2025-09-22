@@ -1,5 +1,8 @@
 @import url("../colors.css");
 
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -11,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header
+======================================== */
 header {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -43,8 +48,10 @@ header {
   color: var(--dark-text-color);
 }
 
-/* ---------- FAROL DE STATUS ---------- */
 
+/* ========================================
+   Status Indicators
+======================================== */
 .farol {
   width: 20px;
   height: 20px;
@@ -100,8 +107,10 @@ header {
   cursor: pointer;
 }
 
-/* ---------- Navegação ---------- */
 
+/* ========================================
+   Navigation
+======================================== */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -129,7 +138,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -180,7 +191,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- CONTAINER & SECTIONS ---------- */
+/* ========================================
+   Panels & Containers
+======================================== */
 .container,
 .section-ct {
   background-color: var(--overlay-dark);
@@ -204,7 +217,9 @@ nav {
   box-shadow: 0 2px 4px var(--shadow-sm);
 }
 
-/* ---------- FILTROS & GRÁFICOS ---------- */
+/* ========================================
+   Charts & Metrics
+======================================== */
 .filtros-e-grafico {
   display: flex;
 }
@@ -255,7 +270,6 @@ nav {
   font-size: 16px;
 }
 
-/* ---------- FILTROS - FORMULÁRIOS ---------- */
 .painel-geral {
   display: flex;
   gap: 10px;
@@ -348,7 +362,6 @@ nav {
   text-align: center;
 }
 
-/* ---------- FORM HEADER ---------- */
 .form-header {
   display: flex;
   justify-content: space-between;
@@ -367,7 +380,6 @@ nav {
   margin: 0;
 }
 
-/* ---------- BUTTONS ---------- */
 .consulta,
 .associar-responsavel button,
 .archives,
@@ -652,6 +664,9 @@ nav {
   margin-left: 2px;
 }
 
+/* ========================================
+   Action Buttons
+======================================== */
 .consulta {
   padding: 10px 16px;
   background-color: var(--accent-color);
@@ -705,6 +720,10 @@ nav {
   box-shadow: 0 4px 6px var(--shadow-lg);
   color: var(--light-color);
 }
+
+/* ========================================
+   File Actions
+======================================== */
 .carregar-arquivos {
   display: flex;
   justify-content: flex-end;
@@ -721,7 +740,6 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- LEGENDAS E INDICADORES ---------- */
 .linha-legenda-botoes {
   display: flex;
   align-items: center;
@@ -803,7 +821,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TABLES ---------- */
+/* ========================================
+   Tables
+======================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -851,7 +871,7 @@ th {
   text-align: center;
   vertical-align: middle;
   background-color: var(--info-bg);
-  var(--light-color)-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -859,7 +879,7 @@ th {
 .header-atv span {
   font-size: 14px;
   font-weight: bold;
-  var(--light-color)-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -879,7 +899,6 @@ th {
   color: var(--light-color);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -902,7 +921,7 @@ th {
   padding: 8px 20px;
   color: var(--text-color);
   text-decoration: none;
-  var(--light-color)-space: nowrap;
+  white-space: nowrap;
 }
 .submenu a:hover {
   background-color: var(--muted-color);
@@ -911,7 +930,6 @@ th {
   display: block;
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 768px) {
   .consulta-geral {
     flex-direction: column;
@@ -922,7 +940,9 @@ th {
   }
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background-color: var(--gray-900);
   color: var(--muted-color);

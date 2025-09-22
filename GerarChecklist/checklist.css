@@ -1,6 +1,8 @@
 @import url("../colors.css");
 
-/* ---------- RESET & BASE ---------- */
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -12,7 +14,9 @@ body {
   color: var(--text-color);
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header & Navigation
+======================================== */
 .header-container {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -45,7 +49,6 @@ body {
   color: var(--dark-text-color);
 }
 
-/* ---------- NAV ---------- */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -77,7 +80,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -134,7 +139,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
+/* ========================================
+   Menu
+======================================== */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -170,7 +177,9 @@ nav {
   display: block;
 }
 
-/* ---------- CONTAINER ---------- */
+/* ========================================
+   Layout & Containers
+======================================== */
 .container {
   display: flex;
   justify-content: center;
@@ -208,7 +217,9 @@ nav {
   font-weight: bold;
 }
 
-/* ---------- FILTROS ---------- */
+/* ========================================
+   Filters & Form Fields
+======================================== */
 .filters-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -250,7 +261,9 @@ select:focus {
   box-shadow: 0 0 3px rgba(62, 122, 183, 0.4);
 }
 
-/* ---------- AÇÕES ---------- */
+/* ========================================
+   Actions & Buttons
+======================================== */
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -286,7 +299,9 @@ select:focus {
   background: var(--dark-151f2b);
 }
 
-/* ---------- SEM ABAS ---------- */
+/* ========================================
+   Tabs
+======================================== */
 .tab-content {
   display: block;
   padding: 0;
@@ -295,7 +310,9 @@ select:focus {
   box-shadow: none;
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background-color: #1f1f1f;
   color: #e5e5e5;

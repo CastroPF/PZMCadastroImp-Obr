@@ -1,5 +1,8 @@
 @import url("../colors.css");
 
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -11,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header & Navigation
+======================================== */
 .header-container {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -41,7 +46,6 @@ body {
   color: var(--dark-text-color);
 }
 
-/* ---------- NAV ---------- */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -70,7 +74,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -121,7 +127,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
+/* ========================================
+   Menu
+======================================== */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -153,6 +161,9 @@ nav {
   display: block;
 }
 
+/* ========================================
+   Form Layout
+======================================== */
 .container {
   display: flex;
   justify-content: center;
@@ -185,7 +196,6 @@ nav {
   font-weight: bold;
 }
 
-/* ---------- FORM ---------- */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -225,6 +235,10 @@ select:focus {
   gap: 0.8rem;
   margin-top: 2rem;
 }
+
+/* ========================================
+   Buttons
+======================================== */
 .btn {
   border: none;
   border-radius: 6px;
@@ -249,13 +263,16 @@ select:focus {
   background: var(--dark-151f2b);
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background-color: #1f1f1f;
   color: #e5e5e5;
 }
 
-Header e Navbar body.dark-mode .header-container {
+/* Dark Mode Header & Navbar */
+body.dark-mode .header-container {
   background-color: #2b2b2b;
   border-bottom: 3px solid var(--secondary-color);
 }

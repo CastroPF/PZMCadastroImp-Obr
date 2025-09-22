@@ -1,5 +1,8 @@
 @import url("../colors.css");
 
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -11,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header & Navigation
+======================================== */
 .header-container {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -41,7 +46,6 @@ body {
   color: var(--dark-text-color);
 }
 
-/* ---------- NAV ---------- */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -70,7 +74,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -121,7 +127,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
+/* ========================================
+   Menu
+======================================== */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -153,7 +161,9 @@ nav {
   display: block;
 }
 
-/* ---------- CONTEÚDO ---------- */
+/* ========================================
+   Layout & Sections
+======================================== */
 .container {
   max-width: 1400px;
   margin-left: 280px;
@@ -187,7 +197,9 @@ nav {
   background: var(--secondary-color);
 }
 
-/* ---------- PERÍODO ---------- */
+/* ========================================
+   Filters & Period Controls
+======================================== */
 .periodo {
   border: 1px solid var(--border-color);
   border-radius: 10px;
@@ -227,7 +239,9 @@ input[type="number"] {
   height: 42px; /* altura fixa */
 }
 
-/* ---------- LISTAS ---------- */
+/* ========================================
+   Dual List
+======================================== */
 .dual-list {
   display: grid;
   grid-template-columns: 1fr 160px 1fr;
@@ -266,7 +280,9 @@ input[type="number"] {
   background: #f9fafb;
 }
 
-/* ---------- BOTÕES ---------- */
+/* ========================================
+   Buttons
+======================================== */
 .btn {
   border: none;
   border-radius: 8px;
@@ -322,7 +338,9 @@ input[type="number"] {
   align-items: center;
 }
 
-/* ---------- INFO ---------- */
+/* ========================================
+   Notices
+======================================== */
 .info {
   margin-top: 2rem;
   padding: 1.2rem 1.5rem;
@@ -344,7 +362,9 @@ input[type="number"] {
   margin-bottom: 0;
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background: var(--dark-bg);
   color: #e0e0e0;
@@ -379,7 +399,7 @@ body.dark-mode nav {
   border-bottom: 1px solid #333333;
 }
 
-/* PAINÉIS */
+/* Dark Mode Panels */
 body.dark-mode .periodo,
 body.dark-mode .list-box {
   background: var(--dark-accent);
@@ -390,14 +410,14 @@ body.dark-mode .list-box {
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Títulos */
+/* Dark Mode Titles */
 body.dark-mode .periodo legend,
 body.dark-mode .list-box h2 {
   color: #f0c36d;
   font-weight: 600;
 }
 
-/* Inputs */
+/* Dark Mode Inputs */
 body.dark-mode input[type="number"] {
   background: #2b2b2b;
   border: 1px solid #3a3a3a;
@@ -420,7 +440,7 @@ body.dark-mode .list:hover {
   background: #323232;
 }
 
-/* Botões */
+/* Dark Mode Buttons */
 body.dark-mode .btn.primary:hover {
   background: #d9a84a;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);

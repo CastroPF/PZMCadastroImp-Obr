@@ -1,6 +1,8 @@
 @import url("../colors.css");
 
-/* ---------- RESET E BASE ---------- */
+/* ========================================
+   Base Styles
+======================================== */
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -12,7 +14,9 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+/* ========================================
+   Header
+======================================== */
 header {
   background-color: var(--primary-color);
   color: var(--light-color);
@@ -39,8 +43,10 @@ header {
   color: var(--light-color);
 }
 
-/* ---------- FAROL DE STATUS ---------- */
 
+/* ========================================
+   Status Indicators
+======================================== */
 .farol {
   width: 20px;
   height: 20px;
@@ -96,8 +102,10 @@ header {
   cursor: pointer;
 }
 
-/* ---------- Navegação ---------- */
 
+/* ========================================
+   Navigation
+======================================== */
 nav {
   background-color: var(--muted-color);
   padding: 10px 20px;
@@ -125,7 +133,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TOGGLE SWITCH ---------- */
+/* ========================================
+   Toggle Switch
+======================================== */
 .toggle-switch {
   position: relative;
   width: 45px;
@@ -176,7 +186,9 @@ nav {
   transform: translateX(23px);
 }
 
-/* ---------- CONTAINER & SECTIONS ---------- */
+/* ========================================
+   Panels & Containers
+======================================== */
 .container,
 .section-ct {
   background-color: var(--overlay-dark);
@@ -191,7 +203,9 @@ nav {
   box-shadow: 0 2px 4px var(--shadow-sm);
 }
 
-/* ---------- FILTROS & GRÁFICOS ---------- */
+/* ========================================
+   Charts & Metrics
+======================================== */
 .filtros-e-grafico {
   display: flex;
 }
@@ -233,7 +247,6 @@ nav {
   margin-bottom: 12px;
   text-align: center;
 }
-/* ---------- FILTROS - FORMULÁRIOS ---------- */
 .painel-geral {
   display: flex;
   gap: 10px;
@@ -323,7 +336,6 @@ nav {
   text-align: center;
 }
 
-/* ---------- FORM HEADER ---------- */
 .form-header {
   display: flex;
   justify-content: space-between;
@@ -342,7 +354,6 @@ nav {
   margin: 0;
 }
 
-/* ---------- ASSOCIAR RESPONSÁVEL ---------- */
 
 .fitros-consulta.associar-responsavel {
   display: flex;
@@ -359,7 +370,7 @@ nav {
   font-size: 14px;
   margin: 0 0 2px 0;
   padding: 0;
-  var(--light-color)-space: nowrap;
+  white-space: nowrap;
 }
 
 .grupo-associar {
@@ -399,7 +410,6 @@ nav {
   background-color: var(--gray-da);
 }
 
-/* ---------- BUTTONS ---------- */
 .consulta,
 .associar-responsavel button,
 .archives,
@@ -686,6 +696,9 @@ nav {
   margin-left: 2px;
 }
 
+/* ========================================
+   Action Buttons
+======================================== */
 .consulta {
   padding: 10px 16px;
   background-color: var(--accent-color);
@@ -755,7 +768,6 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- LEGENDAS E INDICADORES ---------- */
 .linha-legenda-botoes {
   display: flex;
   align-items: center;
@@ -839,7 +851,9 @@ nav {
   cursor: pointer;
 }
 
-/* ---------- TABLES ---------- */
+/* ========================================
+   Tables
+======================================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -880,7 +894,6 @@ th {
   background-color: var(--link-color);
 }
 
-/* ---------- MENU SUSPENSO ---------- */
 .menu-item {
   position: relative;
   cursor: pointer;
@@ -903,7 +916,7 @@ th {
   padding: 8px 20px;
   color: var(--text-color);
   text-decoration: none;
-  var(--light-color)-space: nowrap;
+  white-space: nowrap;
 }
 .submenu a:hover {
   background-color: var(--muted-color);
@@ -912,7 +925,6 @@ th {
   display: block;
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 768px) {
   .consulta-geral {
     flex-direction: column;
@@ -923,7 +935,9 @@ th {
   }
 }
 
-/* ---------- DARK MODE ---------- */
+/* ========================================
+   Dark Mode
+======================================== */
 body.dark-mode {
   background-color: var(--gray-900);
   color: var(--muted-color);
@@ -934,7 +948,7 @@ body.dark-mode header {
 }
 body.dark-mode nav {
   background-color: var(--text-color);
-  border-bottom: 1px solid var(--gray-800) 555;
+  border-bottom: 1px solid var(--gray-800);
 }
 body.dark-mode .mainmenu {
   color: var(--light-color);
