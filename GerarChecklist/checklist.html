@@ -47,7 +47,7 @@
           <a href="/revisão/revisao.html">Gerar Checklist de Revisão</a>
           <a href="/GerarChecklist/checklist.html">Gerar Checklist de Apuração de Impostos</a>
           <a href="/ExclusaoChecklist/exclusao.html">Excluir Checklist de Apuração de Impostos</a>
-          <a href="/ExclusaoRevisao/index.html">Excluir Checklist de Revisão</a>
+          <a href="">Excluir Checklist de Revisão</a>
         </div>
       </div>
       <span>Relatórios</span>
@@ -77,83 +77,75 @@
         <h1>Gerar Checklist de Impostos</h1>
         <p>Os campos essenciais estão marcados com <span class="asterisk">*</span></p>
       </header>
+      <hr style="margin-bottom: 20px; margin-top: -10px;">
 
-      <div class="tabs">
-        <button class="tab active" data-tab="dados">Dados Gerais</button>
-        <button class="tab" data-tab="impostos">Impostos</button>
-      </div>
-
-      <div class="tab-content active" id="dados">
+      <div class="filters-row">
         <div class="form-group">
           <label for="organizacao">Organização <span class="asterisk">*</span></label>
           <select id="organizacao">
             <option>Todos os Itens</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="empresa">Empresa <span class="asterisk">*</span></label>
           <select id="empresa">
             <option>Todos os Itens</option>
           </select>
         </div>
-
         <div class="form-group">
-          <label for="estabelecimento">Estabelecimento</label>
+          <label for="estabelecimento">Estabelecimento <span class="asterisk">*</span></label>
           <select id="estabelecimento">
             <option>Todos os Itens</option>
           </select>
         </div>
+      </div>
 
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="ano-apuracao">Ano Apuração <span class="asterisk">*</span></label>
-            <input type="number" id="ano-apuracao" value="2025" />
-          </div>
-          <div class="form-group">
-            <label for="mes-inicio">Mês Inicial <span class="asterisk">*</span></label>
-            <input type="number" id="mes-inicio" min="1" max="12" value="01" />
-          </div>
-          <div class="form-group">
-            <label for="mes-fim">Mês Final <span class="asterisk">*</span></label>
-            <input type="number" id="mes-fim" min="1" max="12" value="12" />
-          </div>
+      <div class="filters-row">
+        <div class="form-group">
+          <label for="ano-apuracao">Ano Apuração <span class="asterisk">*</span></label>
+          <input type="number" id="ano-apuracao" value="2025" />
         </div>
-
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="ano-ref">Ano Referência <span class="asterisk">*</span></label>
-            <input type="number" id="ano-ref" value="2025" />
-          </div>
-          <div class="form-group">
-            <label for="mes-ref">Mês Referência <span class="asterisk">*</span></label>
-            <input type="number" id="mes-ref" min="1" max="12" value="09" />
-            <strong>Ano/Mês usado para associação do Responsável</strong>
-          </div>
+        <div class="form-group">
+          <label for="mes-inicio">Mês Inicial <span class="asterisk">*</span></label>
+          <input type="number" id="mes-inicio" min="1" max="12" value="01" />
         </div>
+        <div class="form-group">
+          <label for="mes-fim">Mês Final <span class="asterisk">*</span></label>
+          <input type="number" id="mes-fim" min="1" max="12" value="12" />
+        </div>
+      </div>
 
+      <div class="filters-row">
         <div class="form-group">
           <label for="esfera">Esfera</label>
           <select id="esfera">
             <option>Todos os Itens</option>
           </select>
         </div>
+        <div class="form-group">
+          <label for="ano-ref">Ano Referência <span class="asterisk">*</span></label>
+          <input type="number" id="ano-ref" value="2025" />
+        </div>
+        <div class="form-group">
+          <label for="mes-ref">Mês Referência <span class="asterisk">*</span></label>
+          <input type="number" id="mes-ref" min="1" max="12" value="09" />
+          <small>Ano/Mês usado para associação do Responsável</small>
+        </div>
       </div>
 
-      <div class="tab-content" id="impostos">
-        <div class="form-inline">
-          <div class="form-group">
-            <label for="imposto-padrao">Imposto Padrão</label>
-            <select id="imposto-padrao">
-              <option>Todos os Itens</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="imposto-especifico">Imposto Específico</label>
-            <select id="imposto-especifico">
-              <option>Todos os Itens</option>
-            </select>
-          </div>
+      <div class="filters-row">
+
+        <div class="form-group">
+          <label for="imposto-padrao">Imposto Padrão</label>
+          <select id="imposto-padrao">
+            <option>Todos os Itens</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="imposto-especifico">Imposto Específico</label>
+          <select id="imposto-especifico">
+            <option>Todos os Itens</option>
+          </select>
         </div>
       </div>
 
@@ -164,19 +156,21 @@
     </div>
   </main>
 
-  <script src="/js/dark-mode.js"></script>
   <script>
-    const tabs = document.querySelectorAll(".tab");
-    const contents = document.querySelectorAll(".tab-content");
-
-    // Controle de abas
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.tab).classList.add("active");
-      });
+    // Dark Mode
+    const toggle = document.querySelector(".checkbox");
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      toggle.checked = true;
+    }
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
     });
   </script>
 </body>

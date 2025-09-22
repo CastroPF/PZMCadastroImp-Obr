@@ -184,7 +184,7 @@ nav {
   width: 50px;
   height: 6px;
   border-radius: 3px;
-  background: var(--accent-color);
+  background: var(--secondary-color);
 }
 
 .painel {
@@ -193,6 +193,8 @@ nav {
   border-radius: 8px;
   padding: 1rem;
   box-shadow: var(--shadow);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .listas {
@@ -323,7 +325,6 @@ body.dark-mode nav {
   border-bottom: 1px solid var(--dark-border);
 }
 
-/* Painéis */
 body.dark-mode .painel {
   background: var(--dark-accent);
   border: solid 1px var(--primary-color);
@@ -352,8 +353,6 @@ body.dark-mode .filtros select {
 body.dark-mode .filtros label {
   color: var(--gray-200);
 }
-
-/* Botões */
 body.dark-mode .btn.primary {
   background: var(--accent-color);
   color: var(--dark-text-color);
@@ -364,9 +363,9 @@ body.dark-mode .btn.primary:hover {
 }
 
 body.dark-mode .buttons > .btn.outlined {
-  background: var(--dark-151f2b);
+  background: var(--dark-surface);
   color: var(--light-color);
 }
 body.dark-mode .buttons > .btn.outlined:hover {
-  background: var(--dark-accent);
+  background: var(--dark-2c);
 }

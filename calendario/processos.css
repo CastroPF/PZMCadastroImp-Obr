@@ -184,7 +184,7 @@ nav {
   width: 50px;
   height: 6px;
   border-radius: 3px;
-  background: var(--accent-color);
+  background: var(--secondary-color);
 }
 
 /* ---------- PERÍODO ---------- */
@@ -432,4 +432,16 @@ body.dark-mode .btn.outlined {
 
 body.dark-mode .btn.outlined:hover {
   background: var(--dark-accent);
+}
+
+body.dark-mode .list-actions > .btn.outlined {
+  background: var(--gray-800);
+  color: var(--light-color);
+}
+body.dark-mode .buttons > .btn.outlined {
+  background: var(--dark-surface);
+  color: var(--light-color);
+}
+body.dark-mode .buttons > .btn.outlined:hover {
+  background: var(--dark-2c);
 }
