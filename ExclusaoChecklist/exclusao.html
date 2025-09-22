@@ -79,35 +79,28 @@
       </header>
 
       <form>
-        <div class="form-group">
-          <label for="organizacao">Organização</label>
-          <select id="organizacao">
-            <option>Todos os Itens</option>
-          </select>
+        <div class="filters-row">
+          <div class="form-group">
+            <label for="organizacao">Organização</label>
+            <select id="organizacao">
+              <option>Todos os Itens</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <select id="empresa">
+              <option>Todos os Itens</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="estabelecimento">Estabelecimento</label>
+            <select id="estabelecimento">
+              <option>Todos os Itens</option>
+            </select>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="empresa">Empresa</label>
-          <select id="empresa">
-            <option>Todos os Itens</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="estabelecimento">Estabelecimento</label>
-          <select id="estabelecimento">
-            <option>Todos os Itens</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="imposto">Imposto Específico</label>
-          <select id="imposto">
-            <option>Todos os Itens</option>
-          </select>
-        </div>
-
-        <div class="form-inline">
+        <div class="filters-row">
           <div class="form-group">
             <label for="ano-apuracao">Ano Apuração <span class="asterisk">*</span></label>
             <input type="number" id="ano-apuracao" value="2025" />
@@ -121,6 +114,22 @@
             <input type="number" id="mes-final" value="12" min="1" max="12" />
           </div>
         </div>
+
+        <div class="filters-row">
+          <div class="form-group">
+            <label for="imposto-padrao">Imposto Padrão</label>
+            <select id="imposto-padrao">
+              <option>Todos os Itens</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="imposto-especifico">Imposto Específico</label>
+            <select id="imposto-especifico">
+              <option>Todos os Itens</option>
+            </select>
+          </div>
+        </div>
+
         <footer class="form-actions">
           <button type="submit" class="btn outlined">Atualizar (Filtro de Mês)</button>
           <button type="submit" class="btn primary">Processar Exclusão</button>
@@ -128,6 +137,7 @@
       </form>
     </div>
   </main>
+
   <script src="/js/dark-mode.js"></script>
 </body>
 
