@@ -75,25 +75,24 @@
     <div class="form-card">
       <header class="form-header">
         <h1>Gerar Checklist de Impostos</h1>
-        <p>Os campos essenciais estão marcados com <span class="asterisk">*</span></p>
       </header>
       <hr style="margin-bottom: 20px; margin-top: -10px;">
 
       <div class="filters-row">
         <div class="form-group">
-          <label for="organizacao">Organização <span class="asterisk">*</span></label>
+          <label for="organizacao">Organização</label>
           <select id="organizacao">
             <option>Todos os Itens</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="empresa">Empresa <span class="asterisk">*</span></label>
+          <label for="empresa">Empresa</label>
           <select id="empresa">
             <option>Todos os Itens</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="estabelecimento">Estabelecimento <span class="asterisk">*</span></label>
+          <label for="estabelecimento">Estabelecimento</label>
           <select id="estabelecimento">
             <option>Todos os Itens</option>
           </select>
@@ -101,17 +100,33 @@
       </div>
 
       <div class="filters-row">
-        <div class="form-group">
-          <label for="ano-apuracao">Ano Apuração <span class="asterisk">*</span></label>
-          <input type="number" id="ano-apuracao" value="2025" />
+        <div class="filters-period">
+          <div class="form-group">
+            <label for="ano-apuracao">Ano Mês Apuração</label>
+            <input type="number" id="ano-apuracao" value="2025" />
+          </div>
+          <div class="form-group">
+            <label for="mes-inicio">Mês Inicial</label>
+            <input type="number" id="mes-inicio" min="1" max="12" value="01" />
+          </div>
+          <div class="form-group">
+            <label for="mes-fim">Mês Final</label>
+            <input type="number" id="mes-fim" min="1" max="12" value="12" />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="mes-inicio">Mês Inicial <span class="asterisk">*</span></label>
-          <input type="number" id="mes-inicio" min="1" max="12" value="01" />
-        </div>
-        <div class="form-group">
-          <label for="mes-fim">Mês Final <span class="asterisk">*</span></label>
-          <input type="number" id="mes-fim" min="1" max="12" value="12" />
+      </div>
+
+      <div class="filters-row">
+        <div class="filters-reference">
+          <div class="form-group">
+            <label for="ano-ref">Ano Referência</label>
+            <input type="number" id="ano-ref" value="2025" />
+          </div>
+          <div class="form-group">
+            <label for="mes-ref">Mês Referência</label>
+            <input type="number" id="mes-ref" min="1" max="12" value="09" />
+            <small>Ano/Mês usado para associação do Responsável</small>
+          </div>
         </div>
       </div>
 
@@ -122,19 +137,9 @@
             <option>Todos os Itens</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="ano-ref">Ano Referência <span class="asterisk">*</span></label>
-          <input type="number" id="ano-ref" value="2025" />
-        </div>
-        <div class="form-group">
-          <label for="mes-ref">Mês Referência <span class="asterisk">*</span></label>
-          <input type="number" id="mes-ref" min="1" max="12" value="09" />
-          <small>Ano/Mês usado para associação do Responsável</small>
-        </div>
       </div>
 
       <div class="filters-row">
-
         <div class="form-group">
           <label for="imposto-padrao">Imposto Padrão</label>
           <select id="imposto-padrao">
@@ -157,7 +162,6 @@
   </main>
 
   <script>
-    // Dark Mode
     const toggle = document.querySelector(".checkbox");
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");

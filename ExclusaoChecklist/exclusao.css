@@ -181,7 +181,7 @@ nav {
   background: var(--light-color);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  width: 100%;
+  width: 40%;
   max-width: 900px;
   padding: 2rem;
   box-shadow: var(--shadow);
@@ -210,12 +210,16 @@ nav {
   font-weight: bold;
 }
 
-/* ---------- FILTROS EM LINHA ---------- */
 .filters-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.2rem;
   margin-bottom: 1.5rem;
+}
+
+.filters-period {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
 
 .form-group {
