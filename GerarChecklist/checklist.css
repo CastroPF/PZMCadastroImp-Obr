@@ -70,11 +70,29 @@ nav {
   gap: 16px;
 }
 
+.flags {
+  display: flex;
+  align-items: center;
+}
+
 .flags img {
-  margin-top: 4px;
-  width: 24px;
-  height: auto;
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  margin-left: -6px;
   cursor: pointer;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.2s ease;
+}
+
+.flags img:first-child {
+  margin-left: 0;
+}
+
+.flags img:hover {
+  transform: scale(1.1);
+  z-index: 2;
 }
 
 /* ---------- TOGGLE SWITCH ---------- */
